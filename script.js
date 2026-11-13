@@ -3,23 +3,22 @@
 // Suis les TODO dans l'ordre. La constante plantes vient de plantes.js.
 // =====================================================
 
-
 // ---------- PARTIE 1 : les fonctions qui CALCULENT ----------
 // Elles reçoivent des données et RETOURNENT un résultat.
 // Elles ne touchent pas à la page.
 
-
 // TODO 1 — compterAArroser(liste)
 // Retourne le nombre de plantes de la liste dont aArroser vaut true.
-const compterAArroser = (liste) => {    // Je l'ai écrit en fléché par habitude
-  let compteur = 0
+const compterAArroser = (liste) => {
+    // Je l'ai écrit en fléché par habitude
+    let compteur = 0
 
-  liste.forEach((plante) => {
-    if (plante.aArroser === true) {
-      compteur++
-    }
-  })
-  return compteur
+    liste.forEach((plante) => {
+        if (plante.aArroser === true) {
+            compteur++
+        }
+    })
+    return compteur
 }
 
 // Vérifie dans la console avant de passer à la suite :
@@ -30,21 +29,20 @@ console.log(compterAArroser(plantes))
 // Retourne un NOUVEAU tableau avec seulement les plantes dont le lieu
 // est égal au paramètre lieu ("intérieur" ou "extérieur").
 function filtrerParLieu(liste, lieu) {
-  const resultat = []
+    const resultat = []
 
-  liste.forEach((plante) => {
-    if (plante.lieu === lieu) {
-      resultat.push(plante)
-    }
-  })
-  return resultat
+    liste.forEach((plante) => {
+        if (plante.lieu === lieu) {
+            resultat.push(plante)
+        }
+    })
+    return resultat
 }
 // console.log(filtrerParLieu(plantes, "intérieur")) // doit afficher 4 plantes
 console.log(filtrerParLieu(plantes, "intérieur"))
 
 // ---------- PARTIE 2 : les fonctions qui AFFICHENT ----------
 // Elles modifient la page. Elles ne retournent rien.
-
 
 // TODO 3 — afficherPlantes(liste)
 // 1. Vide la liste <ul id="liste">
@@ -53,16 +51,28 @@ console.log(filtrerParLieu(plantes, "intérieur"))
 // 4. Mets à jour <p id="compteur"> : « 4 plantes à arroser sur 8 »
 //    (utilise compterAArroser, ne recompte pas ici)
 function afficherPlantes(liste) {
+    const ul = document.getElementById("liste")
+    const compteur = document.getElementById("compteur")
 
+    // Vide la liste
+    ul.textContent = ""
+
+    liste.forEach((plante) => {
+        const li = document.createElement("li")
+        li.textContent = `${plante.emoji} ${plante.nom}`
+        if (plante.aArroser === true) {
+            li.classList.add("a-arroser")
+        }
+        ul.appendChild(li)
+    })
+
+    // MAJ du compteur des plantes à arroser
+    compteur.textContent = `${compterAArroser(liste)} plantes à arroser sur ${liste.length}`
 }
 
-
 // TODO 4 — Au chargement de la page, affiche toutes les plantes.
-
-
-
+afficherPlantes(plantes)
 // ---------- PARTIE 3 : les clics ----------
-
 
 // TODO 5 — Les trois boutons de filtre
 // Au clic sur « Intérieur » : affiche seulement les plantes d'intérieur.
@@ -70,12 +80,8 @@ function afficherPlantes(liste) {
 // Au clic sur « Toutes » : toutes les plantes.
 // Les gestionnaires sont des fonctions fléchées : () => { ... }
 
-
-
 // TODO 6 — Le bouton actif
 // Le bouton cliqué prend la classe "actif", les deux autres la perdent.
-
-
 
 // =====================================================
 // Questions de recul (réponds en commentaire ici)
