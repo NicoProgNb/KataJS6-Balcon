@@ -86,21 +86,42 @@ const btnExterieur = document.getElementById("btn-exterieur")
 
 btnToutes.addEventListener("click", () => {
     afficherPlantes(plantes)
+    activerBouton(btnToutes)
 })
 
 btnInterieur.addEventListener("click", () => {
     const resultat = filtrerParLieu(plantes, "intérieur")
     afficherPlantes(resultat)
+    activerBouton(btnInterieur)
 })
 
 btnExterieur.addEventListener("click", () => {
     const resultat = filtrerParLieu(plantes, "extérieur")
     afficherPlantes(resultat)
+    activerBouton(btnExterieur)
 })
-
 
 // TODO 6 — Le bouton actif
 // Le bouton cliqué prend la classe "actif", les deux autres la perdent.
+
+// Exemple pris sur Adaquiz avec le .cache des écrans
+const activerBouton = (bouton) => {
+    btnToutes.classList.remove("actif")
+    btnInterieur.classList.remove("actif")
+    btnExterieur.classList.remove("actif")
+    bouton.classList.add("actif")
+}
+
+btnToutes.addEventListener("click", () => {
+    activerBouton(btnToutes)
+})
+btnInterieur.addEventListener("click", () => {
+    activerBouton(btnInterieur)
+})
+btnExterieur.addEventListener("click", () => {
+    activerBouton(btnExterieur)
+})
+
 
 // =====================================================
 // Questions de recul (réponds en commentaire ici)
