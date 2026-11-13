@@ -1,6 +1,6 @@
-** Questions de recul**
+**Questions de recul**
 
-** 1 - Laquelle de tes fonctions pourrait-on tester avec Jest, et laquelle non ? Pourquoi ?**
+**1 - Laquelle de tes fonctions pourrait-on tester avec Jest, et laquelle non ? Pourquoi ?**
 >> Avec Jest (tests unitaire), on peut tester compterAArroser(), filtrerParLieu(), afficherPLantes(). 
 Je ne testerai pas ce qui fait modifier le CSS (ex : activerBouton() ) car il faut pouvoir afficher des données dans la console. 
 
