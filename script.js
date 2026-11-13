@@ -125,7 +125,13 @@ btnExterieur.addEventListener("click", () => {
 
 // =====================================================
 // Questions de recul (réponds en commentaire ici)
-// 1.
-// 2.
-// 3.
+//
+// 1. Avec Jest (tests unitaire), on peut tester compterAArroser(), filtrerParLieu(), afficherPLantes(). 
+// Je ne testerai pas ce qui fait modifier le CSS (ex : activerBouton() ) car il faut pouvoir afficher des données dans la console. 
+//
+// 2. A chaque fois que l'on clique sur un bouton, ça ajoute à la liste les plantes. Ce qui créer beaucoup de doublons inutiles. 
+//
+// 3. plantes.js sert de conteneur data, comme un json. Donc si on lance script.js sans qu'il connaisse les données à récupérer dans les data, il ne peut pas executer les fonctions. 
+// On mets la banque de donnée, puis, on les utilise. Comme pour une constante/variable, il faut la créer avant de l'utiliser. 
+// 
 // =====================================================
